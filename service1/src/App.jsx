@@ -1,12 +1,9 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom';
+import Main from './Main';
 
-export default class App extends React.Component {
-
-    componentDidMount () {
-        window.addEventListener('message', console.log)
-    }
-
-    render(){
-        return 'First try'
-    }
+export default function App() {
+    return <BrowserRouter>
+        <Main />
+    </BrowserRouter>
 }
