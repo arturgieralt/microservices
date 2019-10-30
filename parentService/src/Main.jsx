@@ -16,6 +16,9 @@ export default class Main extends React.Component {
               <li>
                 <Link to='/service1'>My Service 1</Link>
               </li>
+              <li>
+                <Link to='/service2'>My Service 2</Link>
+              </li>
             </ul>
           </nav>
           <Switch>

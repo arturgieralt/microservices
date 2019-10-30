@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function Home() {
-    return 'Welcome on Home page of SERVICE 1'
+    return 'Welcome on Home page of SERVICE 2'
 }
