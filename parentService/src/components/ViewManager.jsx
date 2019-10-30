@@ -12,12 +12,18 @@ const serviceMap = {
 }
 export default function ViewManager () {
         const { name } = useParams()
+        const serviceData = serviceMap[name]
+
+        if(!serviceData) {
+          return 'Wrong service name provided!'
+        }
+
         const location = useLocation()
-        const src = serviceMap[name].url
         const relativeLink = location.pathname.split(name)[1]
-        console.log(relativeLink)
-        return <div>
-          <IFrame url={src +  relativeLink} name={name} />
-        </div>
-    
+
+        return (
+          <div>
+            <IFrame url={serviceData.url +  relativeLink} name={name} />
+          </div>
+        )
 }
