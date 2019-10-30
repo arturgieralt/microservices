@@ -2,9 +2,12 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 var path = require('path');
 
 module.exports = {
-    entry: './local/index.js',
+  entry: './src/index.js',
+  output: {
+    publicPath: '/',
+  },
     devServer: {
-      port: 3000,
+      port: 3001,
       historyApiFallback: true
     },
   module: {

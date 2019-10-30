@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "startLocal": "webpack-dev-server --open --mode development --config webpack.dev.config.js",
     "start": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production"
   },

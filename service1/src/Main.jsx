@@ -16,7 +16,7 @@ class Main extends React.Component {
           window.top.postMessage({
             type: 'URL_CHANGE',
             payload: location.pathname
-          })
+          }, '*')
         });
     }
 
