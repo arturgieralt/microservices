@@ -14,6 +14,6 @@ export default class ParentApp extends React.Component {
   }
 
   render () {
-    return <><div>Parent</div><App /></>
+    return <App />
   }
 }

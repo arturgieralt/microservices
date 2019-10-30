@@ -7,7 +7,13 @@ class Main extends React.Component {
 
     constructor(props){
         super(props);
+
+        this.handleMessage = this.handleMessage.bind(this);
         this.addHistoryChangedHandler()
+
+        this.state = {
+          data: null
+        }
     }
 
     addHistoryChangedHandler() {
@@ -20,12 +26,21 @@ class Main extends React.Component {
         });
     }
 
+    handleMessage(event) {
+      if(event.data.type === 'INIT_UPDATE') {
+        this.setState({
+          data: event.data.payload.data
+        })
+      }
+    }
+
     componentDidMount () {
-        window.addEventListener('message', console.log)
+        window.addEventListener('message', this.handleMessage)
     }
 
     render(){
-        return <div>
+        return this.state.data && <div>
+          <h1>Data from ParentIframe: {this.state.data}</h1>
           <nav>
             <ul>
               <li>

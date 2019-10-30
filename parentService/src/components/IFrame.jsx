@@ -4,8 +4,9 @@ export default class IFrame extends React.Component {
 
     constructor(props) {
         super(props)
+        this.iframeRef = React.createRef()
         this.handleMessage = this.handleMessage.bind(this)
-
+        this.postInitialData = this.postInitialData.bind(this)
     }
 
     componentDidMount () {
@@ -14,6 +15,16 @@ export default class IFrame extends React.Component {
 
     componentWillUnmount () {
         window.removeEventListener('message', this.handleMessage)
+    }
+
+    postInitialData() {
+        const message = {
+            type: 'INIT_UPDATE',
+            payload: { 
+                data: 'Data from parent for service: ' + this.props.name
+            }
+        }
+        this.iframeRef.current.contentWindow.postMessage(message, '*')
     }
     
     handleMessage(event) {
@@ -32,11 +43,17 @@ export default class IFrame extends React.Component {
         if (currentLocation !== newLocation) {
           window.history.replaceState(window.history.state, document.title, newLocation)
         }
-      }
-
-    
+     }
     
     render () {
-        return <iframe src={this.props.url} />
+        return <iframe 
+            style={{
+                width: '800px',
+                height: '400px'
+            }}
+            src={this.props.url} 
+            ref={this.iframeRef} 
+            onLoad={this.postInitialData}
+            />
     }
 }
