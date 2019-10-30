@@ -6,6 +6,10 @@ import { shallow, mount } from 'enzyme'
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const props = { 
+    name: 'name',
+    url: 'url'
+}
 describe('IFrame component', () => {
 
     it('should register message listener on mount', () => {
@@ -14,14 +18,14 @@ describe('IFrame component', () => {
             map[event] = cb;
         })
 
-        const component = shallow(<IFrame name='name' url='url' />)
+        const component = shallow(<IFrame {...props} />)
         expect(map).toHaveProperty('message', expect.any(Function))
     })
 
     it('should unregister message listener on unmount', () => {
         
         window.removeEventListener = jest.fn()
-        const component = shallow(<IFrame name='name' url='url' />)
+        const component = shallow(<IFrame {...props} />)
 
         component.unmount()
 
@@ -30,7 +34,7 @@ describe('IFrame component', () => {
 
     it('should post initial data when iFrame is loaded', () => {
         
-        const component = shallow(<IFrame name='name' url='url' />)
+        const component = shallow(<IFrame {...props} />)
         const instance =  component.instance()
 
         const postMessage = jest.fn()
