@@ -21,7 +21,8 @@ export default class IFrame extends React.Component {
         const message = {
             type: 'INIT_UPDATE',
             payload: { 
-                data: 'token'
+                data: 'token',
+                name: this.props.name
             }
         }
         this.iframeRef.current.contentWindow.postMessage(message, document.location.origin)

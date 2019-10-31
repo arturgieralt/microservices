@@ -3,6 +3,9 @@ var path = require('path');
 
 module.exports = {
     entry: './local/index.js',
+    output: {
+      publicPath: '/',
+    },
     devServer: {
       port: 3001,
       historyApiFallback: true

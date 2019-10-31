@@ -12,7 +12,8 @@ class Main extends React.Component {
         this.addHistoryChangedHandler()
 
         this.state = {
-          data: null
+          data: null, 
+          name: null
         }
     }
 
@@ -21,7 +22,7 @@ class Main extends React.Component {
         history.listen((location, action) => {
           window.top.postMessage({
             type: 'URL_CHANGE',
-            payload: location.pathname
+            payload: location.pathname.split(this.state.name)[1]
           }, '*')
         });
     }
@@ -29,7 +30,8 @@ class Main extends React.Component {
     handleMessage(event) {
       if(event.data.type === 'INIT_UPDATE') {
         this.setState({
-          data: event.data.payload.data
+          data: event.data.payload.data,
+          name: event.data.payload.name
         })
       }
     }
@@ -39,23 +41,23 @@ class Main extends React.Component {
     }
 
     render(){
-        return this.state.data && <div>
+        return this.state.data && this.state.name && <div>
           <h1 id='header'>Data from ParentIframe: {this.state.data}</h1>
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to={`/${this.state.name}`}>Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to={`/${this.state.name}/about`}>About</Link>
               </li>
             </ul>
           </nav>
           <Switch>
-            <Route path="/about">
+            <Route path={`/${this.state.name}/about`}>
               <About />
             </Route>
-            <Route path="/">
+            <Route path={`/${this.state.name}`}>
               <Home />
             </Route>
           </Switch>
