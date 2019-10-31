@@ -22,21 +22,17 @@ const path = require('path')
 //     apiProxy.web(req, res, {target: ServerThree});
 // });
 
-app.get('/portal', function(req, res) {
+
+app.get('/portal*', function(req, res) {
     res.sendFile(path.join(__dirname + '/parent/parent.html'));
 });
 
-
-app.get('/portal/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/parent/parent.html'));
-});
-
-app.get('/service1', function(req, res) {
+app.get('/service1*', function(req, res) {
     res.sendFile(path.join(__dirname + '/service1/service1.html'));
 });
 
-app.get('/service1/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/service1/service1.html'));
+app.get('/service2*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/service2/service2.html'));
 });
 
 app.use('/js', express.static('js'))
