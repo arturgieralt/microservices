@@ -4,7 +4,7 @@
 // Cypress baseUrl to configuration map
 const environments = {
     'http://localhost:3001/': {
-      'appUrl': 'http://localhost:3000/',
+      'appUrl': 'http://localhost:3001/',
       'iframe': false
     },
     'http://localhost:3000/': {

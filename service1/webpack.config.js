@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
     entry: './local/index.js',
     devServer: {
-      port: 3000,
+      port: 3001,
       historyApiFallback: true
     },
   module: {
