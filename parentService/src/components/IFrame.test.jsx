@@ -50,9 +50,9 @@ describe('IFrame component', () => {
 
         expect(postMessage).toBeCalledTimes(1)
         expect(postMessage).toHaveBeenCalledWith({
-            "payload": {"data": "Data from parent for service: name"}, 
+            "payload": {"data": "token"}, 
             "type": "INIT_UPDATE"}, 
-            "*"
+            "http://localhost"
         )
     })
 })

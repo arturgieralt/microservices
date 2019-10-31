@@ -7,7 +7,13 @@ module.exports = {
     publicPath: '/',
   },
     devServer: {
-      port: 3001,
+      proxy: {
+        '/service1/': {
+          target: 'http://localhost:3002',
+          pathRewrite: {'^/api' : ''}
+        }
+      },
+      port: 3000,
       historyApiFallback: true
     },
   module: {

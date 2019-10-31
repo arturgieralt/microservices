@@ -40,7 +40,7 @@ class Main extends React.Component {
 
     render(){
         return this.state.data && <div>
-          <h1>Data from ParentIframe: {this.state.data}</h1>
+          <h1 id='header'>Data from ParentIframe: {this.state.data}</h1>
           <nav>
             <ul>
               <li>

@@ -11,21 +11,21 @@ export default class Main extends React.Component {
             <nav>
             <ul>
               <li>
-                <Link to='/'>Home</Link>
+                <Link to='/portal'>Home</Link>
               </li>
               <li>
-                <Link to='/service1'>My Service 1</Link>
+                <Link id='link-service-1' to='/portal/service1'>My Service 1</Link>
               </li>
               <li>
-                <Link to='/service2'>My Service 2</Link>
+                <Link to='/portal/service2'>My Service 2</Link>
               </li>
             </ul>
           </nav>
           <Switch>
-          <Route path="/" exact>
+          <Route path="/portal" exact>
               <Home />
           </Route>
-          <Route path="/:name" children={<IFrameManager />} />
+          <Route path="/portal/:name" children={<IFrameManager />} />
           </Switch>
         </div>
         </BrowserRouter>

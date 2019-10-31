@@ -21,10 +21,10 @@ export default class IFrame extends React.Component {
         const message = {
             type: 'INIT_UPDATE',
             payload: { 
-                data: 'Data from parent for service: ' + this.props.name
+                data: 'token'
             }
         }
-        this.iframeRef.current.contentWindow.postMessage(message, '*')
+        this.iframeRef.current.contentWindow.postMessage(message, document.location.origin)
     }
     
     handleMessage(event) {
@@ -47,6 +47,7 @@ export default class IFrame extends React.Component {
     
     render () {
         return <iframe 
+            id='iframe-content'
             style={{
                 width: '800px',
                 height: '400px'

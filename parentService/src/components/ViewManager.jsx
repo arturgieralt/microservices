@@ -4,10 +4,10 @@ import IFrame from './Iframe';
 
 const serviceMap = {
   'service1': {
-    url: 'http://localhost:3000'
+    url: 'http://localhost:3000/service1'
   },
   'service2': {
-    url: 'http://localhost:3002'
+    url: 'http://localhost:3000/service2'
   }
 }
 export default function ViewManager () {
