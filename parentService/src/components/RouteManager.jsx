@@ -10,7 +10,8 @@ const serviceMap = {
     url: 'http://localhost:3000/service2'
   }
 }
-export default function ViewManager () {
+
+export default function RouteManager () {
         const { name } = useParams()
         const serviceData = serviceMap[name]
 

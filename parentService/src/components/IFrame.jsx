@@ -49,10 +49,6 @@ export default class IFrame extends React.Component {
     render () {
         return <iframe 
             id='iframe-content'
-            style={{
-                width: '800px',
-                height: '400px'
-            }}
             src={this.props.url} 
             ref={this.iframeRef} 
             onLoad={this.postInitialData}
