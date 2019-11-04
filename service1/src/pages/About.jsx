@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function About() {
-    return 'Welcome on About page'
+    return 'Welcome to the About page'
 }
